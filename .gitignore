@@ -1,0 +1,9 @@
+# Project exclude paths
+/frank-db-common/target
+target
+
+*.iml
+*.log
+*.gz
+*.class
+*.idea
