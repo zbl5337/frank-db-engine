@@ -8,8 +8,12 @@
     <artifactId>frank-db-common</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
 
     <dependencies>
+
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -17,11 +21,11 @@
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.clickhouse/clickhouse-client -->
-<!--        <dependency>-->
-<!--            <groupId>com.clickhouse</groupId>-->
-<!--            <artifactId>clickhouse-client</artifactId>-->
-<!--            <version>0.3.2-patch9</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.clickhouse</groupId>-->
+        <!--            <artifactId>clickhouse-client</artifactId>-->
+        <!--            <version>0.3.2-patch9</version>-->
+        <!--        </dependency>-->
 
         <!-- https://mvnrepository.com/artifact/com.clickhouse/clickhouse-jdbc -->
         <dependency>
@@ -30,8 +34,42 @@
             <version>0.3.2-patch9</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.aliyun.odps</groupId>
+            <artifactId>odps-sdk-core</artifactId>
+            <version>0.28.4-public</version>
+<!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <groupId>org.slf4j</groupId>-->
+<!--                    <artifactId>slf4j-api</artifactId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
+        </dependency>
+
 
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <addMavenDescriptor>false</addMavenDescriptor>
+                    </archive>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
 
 </project>
